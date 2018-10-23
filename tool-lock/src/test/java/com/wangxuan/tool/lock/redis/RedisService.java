@@ -27,12 +27,12 @@ public class RedisService {
     RedisDistributedLock lock = new RedisDistributedLock(pool);
     int n = 500;
 
-    public void secKill0() {
+    public void secondKill0() {
         System.out.println(Thread.currentThread().getName());
         System.out.println(--n);
     }
 
-    public void secKill2() {
+    public void secondKill2() {
         String lockName = "resource";
         String identifier = lock.lockWithTimeout(lockName, 5000, 1000);
         System.out.println(Thread.currentThread().getName() + "获得了锁，锁返回的标识符：" + identifier);
@@ -40,7 +40,7 @@ public class RedisService {
         lock.releaseLock(lockName, identifier);
     }
 
-    public void secKill() {
+    public void secondKill() {
         String lockName = "resource";
         String identifier = lock.lockWithTimeout(lockName, 5000, 1000);
         if (identifier != null && !"".equals(identifier)) {
@@ -55,7 +55,7 @@ public class RedisService {
         }
     }
 
-    public void secKill3() {
+    public void secondKill3() {
         String lockName = "resource";
         String identifier = lock.lockWithTimeout(lockName, 5000, 1000);
         if (identifier != null && !"".equals(identifier)) {

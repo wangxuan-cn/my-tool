@@ -8,7 +8,7 @@ public class RedisDistributedLockTest {
     public static void main(String[] args) {
         RedisService redisService = new RedisService();
         for (int i = 0; i < 50; i++) {
-            Thread thread = new Thread(redisService::secKill);
+            Thread thread = new Thread(redisService::secondKill);
             thread.start();
         }
     }
